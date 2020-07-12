@@ -1,9 +1,15 @@
 const express = require('express')
 const app = express()
 const PORT=5000
+const mongoose=require('mongoose')
+const { MONGOURI }=require('./keys')
 
-app.get('/',(req,res)=>{
-    res.send("hello world");
+mongoose.connect(MONGOURI ,{ useNewUrlParser: true , useUnifiedTopology: true })
+mongoose.connection.on('connected',()=>{
+    console.log("connected to mongo")
+})
+mongoose.connection.on('error',(err)=>{
+    console.log("err connecting",err)
 })
 
 app.listen(PORT,()=>{
