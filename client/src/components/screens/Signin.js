@@ -44,7 +44,7 @@ const Signin = ()=>{
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
                 />
-                <input type="text" placeholder="password"
+                <input type="password" placeholder="password"
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                 />
