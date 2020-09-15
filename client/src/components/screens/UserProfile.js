@@ -17,6 +17,23 @@ const UserProfile = ()=>{
             setProfile(result)
         })
     },[])
+
+    const followUser = ()=>{
+        fetch('/follow',{
+            method:"put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body: JSON.stringify({
+                followId:userid
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+    }
+
     return(
         <>
         {userProfile? 
@@ -37,9 +54,14 @@ const UserProfile = ()=>{
                         <h5>{userProfile.user.email}</h5>
                         <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
                             <h6>{userProfile.posts.length} posts</h6>
-                            <h6>40 followers</h6>
+                            <h6>60 followers</h6>
                             <h6>40 following</h6>
                         </div>
+                        <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                                onClick={()=>followUser()}
+                            >
+                                Follow
+                        </button>
                     </div>
                 </div>
                 <div className="gallery">
