@@ -1,0 +1,7 @@
+// run server
+cd server
+nodemon app
+
+// run client
+cd client
+npm start
