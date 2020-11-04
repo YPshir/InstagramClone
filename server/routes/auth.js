@@ -6,7 +6,15 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../config/keys')
 const requireLogin = require('../middleware/requireLogin')
+const nodemailer = require('nodemailer')
+const sendgridTransport = require('nodemailer-sendgrid-transport')
+// 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
 
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth:{
+        api_key:"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"
+    }
+}))
 
 router.post('/signup',(req,res)=>{
     const {name,email,password,pic}=req.body
@@ -28,6 +36,12 @@ router.post('/signup',(req,res)=>{
             })
             user.save()
             .then(user=>{
+                transporter.sendMail({
+                    to:user.email,
+                    from:"no-reply@instagram.com",
+                    subject:"SIGNUP SUCESS",
+                    html:"<h1>Welcome to Instagram-Clone</h1>"
+                })
                 res.json({message:"signup succesfully"})
             })
             .catch(err=>{
