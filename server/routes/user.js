@@ -69,4 +69,15 @@ router.put('/updatepic',requireLogin,(req,res)=>{
     })
 })
 
+router.post('/search-users',(req,res)=>{
+    let userPatterm = new RegExp("^"+req.body.query)
+    User.find({email:{$regex:userPatterm}})
+    .select("_id email")
+    .then(user=>{
+        res.json({user})
+    }).catch(error=>{
+        console.log(error)
+    })
+})
+
 module.exports = router

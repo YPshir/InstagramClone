@@ -55,6 +55,23 @@ const NavBar = () => {
       ];
     }
   };
+
+  const fetchUsers = (query)=>{
+    setSearch(query)
+    fetch('/search-users',{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        query
+      })
+    }).then(res=>res.json())
+    .then(results=>{
+      console.log(results)
+    })
+  }
+
   return (
     <nav>
       <div className="nav-wrapper white">
@@ -77,13 +94,13 @@ const NavBar = () => {
             type="text"
             placeholder="search users"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => fetchUsers(e.target.value)}
           />
           <ul className="collection">
-            <li style={{display:"block"}} className="collection-item">Alvin</li>
-            <li style={{display:"block"}} className="collection-item">Alvin</li>
-            <li style={{display:"block"}} className="collection-item">Alvin</li>
-            <li style={{display:"block"}} className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
           </ul>
         </div>
         <div className="modal-footer">
