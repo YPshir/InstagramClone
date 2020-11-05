@@ -4,7 +4,8 @@ import { UserContext } from "../App";
 import M from "materialize-css";
 const NavBar = () => {
   const searchModal = useRef(null);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("")
+  const [userDetails,setUserDetails] = useState([])
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
@@ -68,7 +69,7 @@ const NavBar = () => {
       })
     }).then(res=>res.json())
     .then(results=>{
-      console.log(results)
+      setUserDetails(results.user)
     })
   }
 
@@ -97,15 +98,19 @@ const NavBar = () => {
             onChange={(e) => fetchUsers(e.target.value)}
           />
           <ul className="collection">
-            <li className="collection-item">Alvin</li>
-            <li className="collection-item">Alvin</li>
-            <li className="collection-item">Alvin</li>
-            <li className="collection-item">Alvin</li>
+            {userDetails.map(item=>{
+              return <Link to={item._id !== state._id ? '/profile/'+item._id : '/profile'} onClick={()=>{
+                M.Modal.getInstance(searchModal.current).close()
+                setSearch('')
+              }}>
+                <li className="collection-item">{item.email}</li>
+                </Link>
+            })}
           </ul>
         </div>
         <div className="modal-footer">
-          <button className="modal-close waves-effect waves-green btn-flat">
-            Agree
+          <button className="modal-close waves-effect waves-green btn-flat" onClick={()=>setSearch('')}>
+            CLOSE
           </button>
         </div>
       </div>
