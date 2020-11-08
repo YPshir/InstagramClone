@@ -20,7 +20,7 @@ Developing an Instagram web app clone using MERN Stack (MERN stands for MongoDB,
 * Deploy: [Heroku](https://devcenter.heroku.com/)
 
 ## Features
-- [x] User signup / login with a username and password
+- [x] User SignUP / SignIN / LogOUT with a username and password
 - [x] One cannot enter the app without being authenticated
 - [x] User can upload / update his profile picture
 - [x] User can view his profile page and the profile page of other users
@@ -29,5 +29,6 @@ Developing an Instagram web app clone using MERN Stack (MERN stands for MongoDB,
 - [x] MyFollowingPost page contains posts uploaded by users that the logged in user is following
 - [x] User can create and delete post
 - [x] One cannot delete existing posts and comments created by other users
-- [x] User can follow / unfolloew other users
+- [x] User can Follow / UnFolloew other users
 - [x] User can like / unlike / comment other users' posts 
+- [x] User can Search Users
