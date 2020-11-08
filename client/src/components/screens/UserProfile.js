@@ -119,7 +119,11 @@ const UserProfile = ()=>{
                     {
                         userProfile.posts.map(item=>{
                             return(
-                                <img key={item._id} className="item" src={item.photo} alt={item.title}/>
+                                <div className="item">
+                                {/* <Link  to={ "/post/" + item._id} > */}
+                               <img  key={item._id}  src={item.photo} alt={item.title} style={{width:"150px",height:"150px"}}/>  
+                               {/* </Link> */}
+                               </div>
                             )
                         })
                     }
