@@ -4,6 +4,15 @@ const mongoose = require('mongoose')
 const requireLogin = require('../middleware/requireLogin')
 const Post = mongoose.model("Post")
 
+// router.get('/post/:id',requireLogin,(req,res)=>{
+//     Post.findOne({_id:req.params.id})
+//     .then(post=>{
+//         res.json({post})
+//     }).catch(err=>{
+//         return res.status(404).json({error:"Post not found"})
+//     })
+// })
+
 router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
     .populate("postedBy" , "_id name pic")

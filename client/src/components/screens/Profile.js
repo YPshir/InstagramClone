@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../App";
+import {Link} from 'react-router-dom';
 
 const Profile = () => {
   const [mypics, setPics] = useState([]);
@@ -101,14 +102,21 @@ const Profile = () => {
             {
                 mypics.map(item=>{
                     return(
-                     <img key={item._id} className="item" src={item.photo} alt={item.title}/>  
+                      <div className="item">
+                      {/* <Link  to={ "/post/" + item._id} > */}
+                     <img  key={item._id}  src={item.photo} alt={item.title} style={{width:"150px",height:"150px"}}/>  
+                     {/* </Link> */}
+                     </div>
                     )
                 })
             }
 
         
         </div>
+
+
     </div>
+    
 )
 //   return (
 //     <div style={{ maxWidth: "550px", margin: "0px auto" }}>
