@@ -6,8 +6,10 @@ Developing an Instagram web app clone using MERN Stack (MERN stands for MongoDB,
 [LINK](https://instagram-clone-shir.herokuapp.com/) 
 
 ## Preview
-![Webp net-gifmaker](https://user-images.githubusercontent.com/46241467/98472181-1141d600-21fa-11eb-8d73-a9313cf2b86b.gif)
-<img width="357" alt="4" src="https://user-images.githubusercontent.com/46241467/98484512-af449900-2218-11eb-8973-d0f1c235b4bb.png">
+![Webp net-gifmaker](https://user-images.githubusercontent.com/46241467/98472181-1141d600-21fa-11eb-8d73-a9313cf2b86b.gif)  
+<img width="350" alt="4" src="https://user-images.githubusercontent.com/46241467/98484512-af449900-2218-11eb-8973-d0f1c235b4bb.png">
+<img width="350" alt="1" src="https://user-images.githubusercontent.com/46241467/98484546-faf74280-2218-11eb-8417-5da7ba2b0447.png">
+
 
 ## Tech
 * Frontend: [ReactJS (Hooks)](https://reactjs.org/docs/hooks-intro.html)
